@@ -2,12 +2,12 @@ import { ReactCountryDropdown } from "react-country-dropdown";
 import "react-country-dropdown/dist/index.css";
 import fetchData from "../api/api";
 import { useDispatch } from "react-redux";
-
+import { AddHolidays } from "../action/action";
 const Countries = (props) => {
   const dispatch = useDispatch();
   const getHolidays = async (country, year) => {
     let data = await fetchData(country, year);
-    dispatch({ type: "AddHolidays", payload: data });
+    dispatch({ type: AddHolidays, payload: data });
   };
 
   const handleSelect = (country) => {
